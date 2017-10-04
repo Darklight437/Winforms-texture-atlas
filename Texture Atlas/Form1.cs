@@ -41,9 +41,37 @@ namespace Texture_Atlas
         private void ButtonExport_Click(object sender, EventArgs e)
         {
             //want to activate saving in here
-           XmlSerializer MYXML = new XmlSerializer(typeof())
+            XmlSerializer MYXML = new XmlSerializer(typeof(SaveObject));
+            StreamReader SS = new StreamReader("test.xml");
+
+            SaveObject woahBoi = new SaveObject();
+
+            
+            MYXML.Serialize(SS, woahBoi);
+
+
+            SS.close();
+        }
+
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            XmlSerializer MYXML = new XmlSerializer(typeof(SaveObject));
+
+            StreamReader SS = new StreamReader("test.xml");
+            SaveObject woahBoi = MYXML.Deserialize(SS) as SaveObject;
+            SS.Close();
         }
 
 
+        [Serializable]
+        private class SaveObject
+        {
+
+            string randomData = "Woah";
+            
+            
+        }
+
+        
     }
 }

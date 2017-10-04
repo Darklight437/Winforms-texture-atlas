@@ -32,6 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextOutput = new System.Windows.Forms.TextBox();
             this.ButtonExport = new System.Windows.Forms.Button();
+            this.LoadButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,11 +66,23 @@
             this.ButtonExport.UseVisualStyleBackColor = true;
             this.ButtonExport.Click += new System.EventHandler(this.ButtonExport_Click);
             // 
+            // LoadButton
+            // 
+            this.LoadButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoadButton.Location = new System.Drawing.Point(131, 481);
+            this.LoadButton.Name = "LoadButton";
+            this.LoadButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadButton.TabIndex = 3;
+            this.LoadButton.Text = "Load";
+            this.LoadButton.UseVisualStyleBackColor = true;
+            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
+            // 
             // AtlasGen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 516);
+            this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.ButtonExport);
             this.Controls.Add(this.TextOutput);
             this.Controls.Add(this.pictureBox1);
@@ -88,6 +101,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox TextOutput;
         private System.Windows.Forms.Button ButtonExport;
+        private System.Windows.Forms.Button LoadButton;
     }
 }
 
