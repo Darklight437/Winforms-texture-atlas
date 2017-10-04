@@ -38,6 +38,23 @@ namespace Texture_Atlas
             }
         }
 
+        private void AtlasGen_DragEnter(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
+
+        private void AtlasGen_DragDrop(object sender, DragEventArgs e)
+        {
+            //pictureBox1.Image = e.Data.GetData(DataFormats.FileDrop);
+        }
+
+        //###################################################################################
+        //button zone
+        //###################################################################################
+
         private void ButtonExport_Click(object sender, EventArgs e)
         {
             //want to activate saving in here
@@ -74,7 +91,12 @@ namespace Texture_Atlas
             
             
         }
-
+      
         
+        
+        
+        
+        
+          
     }
 }

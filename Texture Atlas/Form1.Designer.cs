@@ -90,6 +90,8 @@
             this.Name = "AtlasGen";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.AtlasGen_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.AtlasGen_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
