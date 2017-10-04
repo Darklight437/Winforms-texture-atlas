@@ -42,15 +42,16 @@ namespace Texture_Atlas
         {
             //want to activate saving in here
             XmlSerializer MYXML = new XmlSerializer(typeof(SaveObject));
-            StreamReader SS = new StreamReader("test.xml");
+
+            StreamWriter SS = new StreamWriter("test.xml");
 
             SaveObject woahBoi = new SaveObject();
 
-            
+            woahBoi.randomData = "Woah Woah";
             MYXML.Serialize(SS, woahBoi);
 
 
-            SS.close();
+            SS.Close();
         }
 
         private void LoadButton_Click(object sender, EventArgs e)
@@ -60,14 +61,16 @@ namespace Texture_Atlas
             StreamReader SS = new StreamReader("test.xml");
             SaveObject woahBoi = MYXML.Deserialize(SS) as SaveObject;
             SS.Close();
+
+            TextOutput.Text = woahBoi.randomData;
         }
 
 
         [Serializable]
-        private class SaveObject
+        public class SaveObject
         {
 
-            string randomData = "Woah";
+          public string randomData = "Woah";
             
             
         }
