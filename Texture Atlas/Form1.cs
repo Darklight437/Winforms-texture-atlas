@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace Texture_Atlas
 {
@@ -40,7 +41,9 @@ namespace Texture_Atlas
         private void ButtonExport_Click(object sender, EventArgs e)
         {
             //want to activate saving in here
-           
+           XmlSerializer MYXML = new XmlSerializer(typeof())
         }
+
+
     }
 }
