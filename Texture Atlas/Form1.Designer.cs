@@ -33,13 +33,14 @@
             this.TextOutput = new System.Windows.Forms.TextBox();
             this.ButtonExport = new System.Windows.Forms.Button();
             this.LoadButton = new System.Windows.Forms.Button();
+            this.Import = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.WindowText;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(307, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(525, 400);
@@ -77,11 +78,28 @@
             this.LoadButton.UseVisualStyleBackColor = true;
             this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
+            // Import
+            // 
+            this.Import.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Import.Location = new System.Drawing.Point(131, 435);
+            this.Import.Name = "Import";
+            this.Import.Size = new System.Drawing.Size(75, 23);
+            this.Import.TabIndex = 4;
+            this.Import.Text = "Import";
+            this.Import.UseVisualStyleBackColor = true;
+            this.Import.Click += new System.EventHandler(this.Import_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
             // AtlasGen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 516);
+            this.Controls.Add(this.Import);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.ButtonExport);
             this.Controls.Add(this.TextOutput);
@@ -104,6 +122,8 @@
         private System.Windows.Forms.TextBox TextOutput;
         private System.Windows.Forms.Button ButtonExport;
         private System.Windows.Forms.Button LoadButton;
+        private System.Windows.Forms.Button Import;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
