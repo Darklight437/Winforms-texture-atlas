@@ -99,7 +99,7 @@ namespace Texture_Atlas
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-
+            
         }
     }
 }
