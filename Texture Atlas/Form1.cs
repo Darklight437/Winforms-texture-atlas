@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
 
+
 namespace Texture_Atlas
 {
     public partial class AtlasGen : Form
@@ -101,5 +102,7 @@ namespace Texture_Atlas
         {
             
         }
+
+        private void 
     }
 }
