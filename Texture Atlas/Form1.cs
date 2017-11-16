@@ -13,6 +13,8 @@ using System.Xml.Serialization;
 
 namespace Texture_Atlas
 {
+    
+
     public partial class AtlasGen : Form
     {
         public AtlasGen()
@@ -103,6 +105,9 @@ namespace Texture_Atlas
             
         }
 
-        private void 
+        private void MergeImage()
+        {
+            //store one internal image somewhere & add the loadDialogue image to it by putting them next to eaxh other
+        }
     }
 }
