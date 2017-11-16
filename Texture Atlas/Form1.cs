@@ -17,6 +17,9 @@ namespace Texture_Atlas
 
     public partial class AtlasGen : Form
     {
+
+        
+
         public AtlasGen()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace Texture_Atlas
         {
 
         }
-        
+
         private void TextOutput_TextChanged(object sender, EventArgs e)
         {
 
@@ -34,7 +37,7 @@ namespace Texture_Atlas
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(e.GetType() == typeof(MouseEventArgs))
+            if (e.GetType() == typeof(MouseEventArgs))
             {
                 MouseEventArgs me = e as MouseEventArgs;
                 TextOutput.Text = me.Location.ToString();
@@ -43,20 +46,21 @@ namespace Texture_Atlas
 
         private void AtlasGen_DragEnter(object sender, DragEventArgs e)
         {
-            if(e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 e.Effect = DragDropEffects.Copy;
+                
             }
         }
 
         private void AtlasGen_DragDrop(object sender, DragEventArgs e)
         {
-            //pictureBox1.Image = e.Data.GetData(DataFormats.FileDrop);
+            
         }
 
-        //###################################################################################
-        //button zone
-        //###################################################################################
+//###################################################################################
+//button zone
+//###################################################################################
 
         private void ButtonExport_Click(object sender, EventArgs e)
         {
@@ -90,9 +94,9 @@ namespace Texture_Atlas
         public class SaveObject
         {
 
-          public string randomData = "Woah";
-            
-            
+            public string randomData = "Woah";
+
+
         }
 
         private void Import_Click(object sender, EventArgs e)
@@ -102,12 +106,22 @@ namespace Texture_Atlas
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            
+            Img1 = openFileDialog1.OpenFile().
         }
 
+        private void imageMagic()
+        {
+            //Get the thing that the loadfiledialogue returns
+        }
+
+<<<<<<< HEAD
         private void MergeImage()
         {
             //store one internal image somewhere & add the loadDialogue image to it by putting them next to eaxh other
         }
+=======
+>>>>>>> 558efd62a32255ddf51b851115ec4329f061d8dd
     }
 }
+
+
