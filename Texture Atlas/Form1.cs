@@ -18,7 +18,31 @@ namespace Texture_Atlas
     public partial class AtlasGen : Form
     {
 
-        
+        /*
+        * Classes
+        *
+        *contains a class for storing each image on the sheet
+        * & class for the sheet itself
+        *
+        *
+        */
+
+        public class Sprite
+        {
+            int[] CoordianteXY = new int[2];
+            int[] Dimentions = new int[2];
+            string name;
+
+        }
+
+        public class TextureAtlas
+        {
+        //save load functionality
+        //array of sprites?
+
+
+        }
+
 
         public AtlasGen()
         {
@@ -90,6 +114,12 @@ namespace Texture_Atlas
         }
 
 
+//###################################################################################
+//EndButton
+//###################################################################################
+
+
+
         [Serializable]
         public class SaveObject
         {
@@ -106,7 +136,7 @@ namespace Texture_Atlas
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            Img1 = openFileDialog1.OpenFile().
+            //Img1 = openFileDialog1.
         }
 
         private void imageMagic()
@@ -114,13 +144,12 @@ namespace Texture_Atlas
             //Get the thing that the loadfiledialogue returns
         }
 
-<<<<<<< HEAD
+
         private void MergeImage()
         {
             //store one internal image somewhere & add the loadDialogue image to it by putting them next to eaxh other
         }
-=======
->>>>>>> 558efd62a32255ddf51b851115ec4329f061d8dd
+
     }
 }
 
