@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AtlasGen));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextOutput = new System.Windows.Forms.TextBox();
-            this.ButtonExport = new System.Windows.Forms.Button();
-            this.LoadButton = new System.Windows.Forms.Button();
             this.Import = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,31 +55,10 @@
             this.TextOutput.TabIndex = 1;
             this.TextOutput.TextChanged += new System.EventHandler(this.TextOutput_TextChanged);
             // 
-            // ButtonExport
-            // 
-            this.ButtonExport.Location = new System.Drawing.Point(12, 481);
-            this.ButtonExport.Name = "ButtonExport";
-            this.ButtonExport.Size = new System.Drawing.Size(75, 23);
-            this.ButtonExport.TabIndex = 2;
-            this.ButtonExport.Text = "Export";
-            this.ButtonExport.UseVisualStyleBackColor = true;
-            this.ButtonExport.Click += new System.EventHandler(this.ButtonExport_Click);
-            // 
-            // LoadButton
-            // 
-            this.LoadButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LoadButton.Location = new System.Drawing.Point(131, 481);
-            this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(75, 23);
-            this.LoadButton.TabIndex = 3;
-            this.LoadButton.Text = "Load";
-            this.LoadButton.UseVisualStyleBackColor = true;
-            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
-            // 
             // Import
             // 
             this.Import.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Import.Location = new System.Drawing.Point(131, 435);
+            this.Import.Location = new System.Drawing.Point(12, 278);
             this.Import.Name = "Import";
             this.Import.Size = new System.Drawing.Size(75, 23);
             this.Import.TabIndex = 4;
@@ -103,8 +80,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 516);
             this.Controls.Add(this.Import);
-            this.Controls.Add(this.LoadButton);
-            this.Controls.Add(this.ButtonExport);
             this.Controls.Add(this.TextOutput);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -123,8 +98,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox TextOutput;
-        private System.Windows.Forms.Button ButtonExport;
-        private System.Windows.Forms.Button LoadButton;
         private System.Windows.Forms.Button Import;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }

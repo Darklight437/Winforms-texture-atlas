@@ -31,15 +31,20 @@ namespace Texture_Atlas
         {
             int[] CoordianteXY = new int[2];
             int[] Dimentions = new int[2];
+
+            //whatever the fuck you save an image as
+            Bitmap internalSprite;
             string name;
 
         }
 
+
+        [Serializable]
         public class TextureAtlas
         {
-        //save load functionality
-        //array of sprites?
-
+            //save load functionality
+            //array of sprites?
+            List<Sprite> m_spritelist;
 
         }
 
@@ -86,31 +91,11 @@ namespace Texture_Atlas
 //button zone
 //###################################################################################
 
-        private void ButtonExport_Click(object sender, EventArgs e)
+       
+
+        private void Import_Click(object sender, EventArgs e)
         {
-            //want to activate saving in here
-            XmlSerializer MYXML = new XmlSerializer(typeof(SaveObject));
-
-            StreamWriter SS = new StreamWriter("test.xml");
-
-            SaveObject woahBoi = new SaveObject();
-
-            woahBoi.randomData = "Woah Woah";
-            MYXML.Serialize(SS, woahBoi);
-
-
-            SS.Close();
-        }
-
-        private void LoadButton_Click(object sender, EventArgs e)
-        {
-            XmlSerializer MYXML = new XmlSerializer(typeof(SaveObject));
-
-            StreamReader SS = new StreamReader("test.xml");
-            SaveObject woahBoi = MYXML.Deserialize(SS) as SaveObject;
-            SS.Close();
-
-            TextOutput.Text = woahBoi.randomData;
+            openFileDialog1.ShowDialog();
         }
 
 
@@ -120,35 +105,18 @@ namespace Texture_Atlas
 
 
 
-        [Serializable]
-        public class SaveObject
-        {
-
-            public string randomData = "Woah";
 
 
-        }
 
-        private void Import_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.ShowDialog();
-        }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             //Img1 = openFileDialog1.
         }
 
-        private void imageMagic()
-        {
-            //Get the thing that the loadfiledialogue returns
-        }
 
 
-        private void MergeImage()
-        {
-            //store one internal image somewhere & add the loadDialogue image to it by putting them next to eaxh other
-        }
+        
 
     }
 }
