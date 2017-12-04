@@ -45,11 +45,12 @@ namespace Texture_Atlas
         {
             //save load functionality
             //array of sprites?
-            List<Sprite> m_spritelist;
+            public List<Sprite> m_spritelist;
 
         }
 
         Sprite Img1 = new Sprite();
+        TextureAtlas Master = new TextureAtlas();
 
         public AtlasGen()
         {
@@ -104,7 +105,14 @@ namespace Texture_Atlas
         //###################################################################################
 
 
-
+        private void reGenerateImage()
+        {
+            Image FinalImage;
+            foreach (Sprite item in Master.m_spritelist)
+            {
+                
+            }
+        }
 
 
 
@@ -113,6 +121,8 @@ namespace Texture_Atlas
         {
 
             Img1.internalSprite = new Bitmap(openFileDialog1.OpenFile());
+            //run an upodate picturebox function here
+            //it will iterate through the current list of sprites and add them to one image
             pictureBox1.Image = Img1.internalSprite;
         }
 

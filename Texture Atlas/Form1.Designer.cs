@@ -1,4 +1,7 @@
-﻿namespace Texture_Atlas
+﻿using System;
+using System.Windows.Forms;
+
+namespace Texture_Atlas
 {
     partial class AtlasGen
     {
@@ -70,7 +73,7 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif" +
-    "; *.png\"";
+    "; *.PNG\"";
             this.openFileDialog1.Title = "Select an image to add";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
@@ -92,6 +95,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void AtlasGen_DragDrop(object sender, DragEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
