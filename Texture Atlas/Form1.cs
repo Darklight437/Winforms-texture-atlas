@@ -30,9 +30,8 @@ namespace Texture_Atlas
         public class Sprite
         {
            public int[] CoordianteXY = new int[2];
-           public int[] Dimentions = new int[2];
+           
 
-            //whatever the fuck you save an image as
             public Image internalSprite;
             
             string name;
@@ -101,7 +100,7 @@ namespace Texture_Atlas
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-
+            //pictureBox1.Image = reGenerateImage()
         }
         
         //###################################################################################
@@ -136,7 +135,7 @@ namespace Texture_Atlas
             Img1.internalSprite = new Bitmap(openFileDialog1.OpenFile());
             //run an upodate picturebox function here
             //it will iterate through the current list of sprites and add them to one image
-            pictureBox1.Image = Img1.internalSprite;
+            
         }
 
 
