@@ -29,7 +29,7 @@ namespace Texture_Atlas
 
         public class Sprite
         {
-           public int[] CoordianteXY = new int[2];
+           
            
 
             public Image internalSprite;
@@ -38,13 +38,20 @@ namespace Texture_Atlas
 
         }
 
+        public class Position
+        {
+            public int coOrdinateX;
+            public int coOrdinateY;
+        }
 
         [Serializable]
         public class TextureAtlas
         {
             //save load functionality
-            //array of sprites?
-            public List<Sprite> m_spritelist;
+            //one master image that is saved here and an array of positions that represent each image
+            //i need to "work on my public image"
+            public Image Masterimage;
+            public List<Position> m_spritePos;
 
         }
 
@@ -100,7 +107,7 @@ namespace Texture_Atlas
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            //pictureBox1.Image = reGenerateImage()
+            pictureBox1.Image = reGenerateImage(Master.Masterimage, Img1.internalSprite);
         }
         
         //###################################################################################
@@ -111,14 +118,22 @@ namespace Texture_Atlas
 
         private Image reGenerateImage(Image original, Image secondary)
         {
-            //returns this
-            Bitmap finalImage = new Bitmap(original.Width + secondary.Width, Math.Max(original.Height, secondary.Height));
-            using (Graphics g = Graphics.FromImage(finalImage))
-            {
-                g.DrawImage(original, 0, 0);
-                g.DrawImage(secondary, original.Width, 0);
-            }
 
+            //returns this
+            Bitmap finalImage = null;
+            if (original != null)
+            {
+                finalImage = new Bitmap(original.Width + secondary.Width, Math.Max(original.Height, secondary.Height));
+                using (Graphics g = Graphics.FromImage(finalImage))
+                {
+                    g.DrawImage(original, 0, 0);
+                    g.DrawImage(secondary, original.Width, 0);
+                }
+            }
+            else
+            {
+                finalImage = new Bitmap(secondary);
+            }
 
 
 
