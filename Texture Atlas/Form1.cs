@@ -29,11 +29,12 @@ namespace Texture_Atlas
 
         public class Sprite
         {
-            int[] CoordianteXY = new int[2];
-            int[] Dimentions = new int[2];
+           public int[] CoordianteXY = new int[2];
+           public int[] Dimentions = new int[2];
 
             //whatever the fuck you save an image as
-            Bitmap internalSprite;
+            public Image internalSprite;
+            
             string name;
 
         }
@@ -48,6 +49,7 @@ namespace Texture_Atlas
 
         }
 
+        Sprite Img1 = new Sprite();
 
         public AtlasGen()
         {
@@ -78,31 +80,29 @@ namespace Texture_Atlas
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 e.Effect = DragDropEffects.Copy;
-                
+
             }
         }
 
-        private void AtlasGen_DragDrop(object sender, DragEventArgs e)
-        {
-            
-        }
 
-//###################################################################################
-//button zone
-//###################################################################################
 
-       
+        //###################################################################################
+        //button zone
+        //###################################################################################
+
+
 
         private void Import_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
+            
         }
 
 
-//###################################################################################
-//EndButton
-//###################################################################################
-//make a function to stitch images
+        //###################################################################################
+        //EndButton
+        //###################################################################################
+
 
 
 
@@ -111,12 +111,15 @@ namespace Texture_Atlas
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            //Img1 = openFileDialog1.
+
+            Img1.internalSprite = new Bitmap(openFileDialog1.OpenFile());
+            pictureBox1.Image = Img1.internalSprite;
         }
 
 
 
-        
+
+
 
     }
 }
