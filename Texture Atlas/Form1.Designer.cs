@@ -1,4 +1,7 @@
-﻿namespace Texture_Atlas
+﻿using System;
+using System.Windows.Forms;
+
+namespace Texture_Atlas
 {
     partial class AtlasGen
     {
@@ -92,6 +95,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void AtlasGen_DragDrop(object sender, DragEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
