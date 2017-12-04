@@ -32,9 +32,9 @@ namespace Texture_Atlas
             int[] CoordianteXY = new int[2];
             int[] Dimentions = new int[2];
 
-            //whatever the fuck you save an image as
-            Bitmap internalSprite;
-            string name;
+           
+            public Bitmap internalSprite;
+            public string name;
 
         }
 
@@ -44,11 +44,14 @@ namespace Texture_Atlas
         {
             //save load functionality
             //array of sprites?
-            List<Sprite> m_spritelist;
+            public List<Sprite> m_spritelist;
 
         }
 
+        //End classes
 
+        TextureAtlas TextureMaster;
+        
         public AtlasGen()
         {
             InitializeComponent();
@@ -96,6 +99,7 @@ namespace Texture_Atlas
         private void Import_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
+            
         }
 
 
@@ -111,7 +115,12 @@ namespace Texture_Atlas
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            //Img1 = openFileDialog1.
+            Sprite currImage = new Sprite();
+            //StreamReader STR = new StreamReader(openFileDialog1.OpenFile());
+            currImage.internalSprite = (Bitmap)Image.FromStream(openFileDialog1.OpenFile());
+
+            //currImage.internalSprite = STR.rea;
+            
         }
 
 
