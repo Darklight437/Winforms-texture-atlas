@@ -36,6 +36,7 @@ namespace Texture_Atlas
             this.TextOutput = new System.Windows.Forms.TextBox();
             this.Import = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,11 +78,22 @@ namespace Texture_Atlas
             this.openFileDialog1.Title = "Select an image to add";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(184, 278);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 5;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
             // AtlasGen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 516);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.Import);
             this.Controls.Add(this.TextOutput);
             this.Controls.Add(this.pictureBox1);
@@ -108,6 +120,7 @@ namespace Texture_Atlas
         private System.Windows.Forms.TextBox TextOutput;
         private System.Windows.Forms.Button Import;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private Button updateButton;
     }
 }
 

@@ -99,19 +99,32 @@ namespace Texture_Atlas
             
         }
 
+        private void updateButton_Click(object sender, EventArgs e)
+        {
 
+        }
+        
         //###################################################################################
         //EndButton
         //###################################################################################
 
+        //returns an image that combines the position of each old image
 
-        private void reGenerateImage()
+        private Image reGenerateImage(Image original, Image secondary)
         {
-            Image FinalImage;
-            foreach (Sprite item in Master.m_spritelist)
+            //returns this
+            Bitmap finalImage = new Bitmap(original.Width + secondary.Width, Math.Max(original.Height, secondary.Height));
+            using (Graphics g = Graphics.FromImage(finalImage))
             {
-                
+                g.DrawImage(original, 0, 0);
+                g.DrawImage(secondary, original.Width, 0);
             }
+
+
+
+
+            return finalImage;
+           
         }
 
 
@@ -125,10 +138,6 @@ namespace Texture_Atlas
             //it will iterate through the current list of sprites and add them to one image
             pictureBox1.Image = Img1.internalSprite;
         }
-
-
-
-
 
 
     }
