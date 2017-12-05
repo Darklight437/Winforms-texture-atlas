@@ -30,8 +30,6 @@ namespace Texture_Atlas
         public class Sprite
         {
            
-           
-
             public Image internalSprite;
             
             string name;
@@ -47,7 +45,7 @@ namespace Texture_Atlas
         [Serializable]
         public class TextureAtlas
         {
-            //save load functionality
+            
             //one master image that is saved here and an array of positions that represent each image
             //i need to "work on my public image"
             public Image Masterimage;
@@ -107,9 +105,20 @@ namespace Texture_Atlas
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = reGenerateImage(Master.Masterimage, Img1.internalSprite);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            Master.Masterimage = reGenerateImage(Master.Masterimage, Img1.internalSprite);
+            pictureBox1.Image = Master.Masterimage;
+            Img1.internalSprite = null;
+            
         }
-        
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //TODO give this the binary file
+            
+            finalImageSaver.ShowDialog();
+        }
+
         //###################################################################################
         //EndButton
         //###################################################################################
@@ -121,18 +130,27 @@ namespace Texture_Atlas
 
             //returns this
             Bitmap finalImage = null;
-            if (original != null)
+            if (original != null && secondary != null)
             {
                 finalImage = new Bitmap(original.Width + secondary.Width, Math.Max(original.Height, secondary.Height));
                 using (Graphics g = Graphics.FromImage(finalImage))
                 {
                     g.DrawImage(original, 0, 0);
-                    g.DrawImage(secondary, original.Width, 0);
+                    g.DrawImage(secondary, original.Width, 0, secondary.Width, secondary.Height);
                 }
             }
             else
             {
-                finalImage = new Bitmap(secondary);
+                if (secondary != null)
+                {
+                    finalImage = new Bitmap(secondary.Width,  secondary.Height);
+                    
+                    using (Graphics g = Graphics.FromImage(finalImage))
+                    {
+                        g.DrawImage(secondary, 0, 0, secondary.Width, secondary.Height);
+                    }
+                }
+                
             }
 
 
@@ -141,7 +159,12 @@ namespace Texture_Atlas
            
         }
 
+        private void serialise(TextureAtlas save)
+        {
+            XmlSerializer Serialiser = new XmlSerializer(typeof(TextureAtlas));
 
+
+        }
 
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -153,7 +176,15 @@ namespace Texture_Atlas
             
         }
 
+        private void finalImageLoader_FileOk(object sender, CancelEventArgs e)
+        {
 
+        }
+
+        private void finalImageSaver_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
 

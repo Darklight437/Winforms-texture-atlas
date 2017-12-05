@@ -37,25 +37,30 @@ namespace Texture_Atlas
             this.Import = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.updateButton = new System.Windows.Forms.Button();
+            this.previewPictureBox = new System.Windows.Forms.PictureBox();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.finalImageLoader = new System.Windows.Forms.OpenFileDialog();
+            this.finalImageSaver = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.WindowText;
-            this.pictureBox1.Location = new System.Drawing.Point(307, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(344, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(525, 400);
+            this.pictureBox1.Size = new System.Drawing.Size(734, 582);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TextOutput
             // 
-            this.TextOutput.Location = new System.Drawing.Point(12, 12);
+            this.TextOutput.Location = new System.Drawing.Point(12, 321);
             this.TextOutput.Multiline = true;
             this.TextOutput.Name = "TextOutput";
-            this.TextOutput.Size = new System.Drawing.Size(278, 244);
+            this.TextOutput.Size = new System.Drawing.Size(269, 63);
             this.TextOutput.TabIndex = 1;
             this.TextOutput.TextChanged += new System.EventHandler(this.TextOutput_TextChanged);
             // 
@@ -73,14 +78,14 @@ namespace Texture_Atlas
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "\"Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif" +
-    "; *.PNG\"";
+            this.openFileDialog1.Filter = "\"Image files, noPNG tho (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *." +
+    "jpe; *.jfif; \"";
             this.openFileDialog1.Title = "Select an image to add";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(184, 278);
+            this.updateButton.Location = new System.Drawing.Point(93, 278);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 5;
@@ -88,11 +93,41 @@ namespace Texture_Atlas
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
+            // previewPictureBox
+            // 
+            this.previewPictureBox.BackColor = System.Drawing.SystemColors.WindowText;
+            this.previewPictureBox.Location = new System.Drawing.Point(12, 12);
+            this.previewPictureBox.Name = "previewPictureBox";
+            this.previewPictureBox.Size = new System.Drawing.Size(297, 245);
+            this.previewPictureBox.TabIndex = 6;
+            this.previewPictureBox.TabStop = false;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(12, 413);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(85, 28);
+            this.SaveButton.TabIndex = 7;
+            this.SaveButton.Text = "Save Image";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // finalImageLoader
+            // 
+            this.finalImageLoader.FileName = "TextureMaster";
+            this.finalImageLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.finalImageLoader_FileOk);
+            // 
+            // finalImageSaver
+            // 
+            this.finalImageSaver.FileOk += new System.ComponentModel.CancelEventHandler(this.finalImageSaver_FileOk);
+            // 
             // AtlasGen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 516);
+            this.ClientSize = new System.Drawing.Size(1090, 675);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.previewPictureBox);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.Import);
             this.Controls.Add(this.TextOutput);
@@ -104,6 +139,7 @@ namespace Texture_Atlas
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.AtlasGen_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.AtlasGen_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,6 +157,10 @@ namespace Texture_Atlas
         private System.Windows.Forms.Button Import;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Button updateButton;
+        private PictureBox previewPictureBox;
+        private Button SaveButton;
+        private OpenFileDialog finalImageLoader;
+        private SaveFileDialog finalImageSaver;
     }
 }
 
