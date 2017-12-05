@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 
 namespace Texture_Atlas
@@ -49,7 +51,7 @@ namespace Texture_Atlas
             //one master image that is saved here and an array of positions that represent each image
             //i need to "work on my public image"
             public Image Masterimage;
-            public List<Position> m_spritePos;
+            private List<Position> m_spritePos;
 
         }
 
@@ -99,13 +101,21 @@ namespace Texture_Atlas
 
         private void Import_Click(object sender, EventArgs e)
         {
+            previewPictureBox.Image = null;
             openFileDialog1.ShowDialog();
+            if (previewPictureBox.SizeMode != PictureBoxSizeMode.Zoom)
+            {
+                previewPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            }
             
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            if (pictureBox1.SizeMode != PictureBoxSizeMode.Zoom)
+            {
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            }
             Master.Masterimage = reGenerateImage(Master.Masterimage, Img1.internalSprite);
             pictureBox1.Image = Master.Masterimage;
             Img1.internalSprite = null;
@@ -114,15 +124,21 @@ namespace Texture_Atlas
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //TODO give this the binary file
+            
             
             finalImageSaver.ShowDialog();
         }
 
-        //###################################################################################
-        //EndButton
-        //###################################################################################
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            finalImageLoader.ShowDialog();
+        }
 
+        //########################################################################################
+        //########################################################################################
+        //EndButton
+        //########################################################################################
+        //########################################################################################
         //returns an image that combines the position of each old image
 
         private Image reGenerateImage(Image original, Image secondary)
@@ -159,32 +175,62 @@ namespace Texture_Atlas
            
         }
 
-        private void serialise(TextureAtlas save)
+        private void serialise(string targetPath)
         {
-            XmlSerializer Serialiser = new XmlSerializer(typeof(TextureAtlas));
+            
+            BinaryFormatter SerialiseTool = new BinaryFormatter();
+            FileStream stream = new FileStream(targetPath + ".dat", FileMode.Create);
 
-
+            SerialiseTool.Serialize(stream, Master);
+            stream.Close();
         }
 
+        private void deSerialise(Stream loadfilestr)
+        {
+            BinaryFormatter serialiseTool = new BinaryFormatter();
+            try
+            {
+                Master = (TextureAtlas)serialiseTool.Deserialize(loadfilestr);
+                pictureBox1.Image = Master.Masterimage;
+                if (pictureBox1.SizeMode != PictureBoxSizeMode.Zoom)
+                {
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+            catch(SerializationException e)
+            {
+                Console.WriteLine("failed to serialize. reason:" + e.Message);
+            }
+            
+        }
+       
+
+
+        //########################################################################################
+        //########################################################################################
+        //Dialog boxes
+        //########################################################################################
+        //########################################################################################
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
             Img1.internalSprite = new Bitmap(openFileDialog1.OpenFile());
-            //run an upodate picturebox function here
-            //it will iterate through the current list of sprites and add them to one image
+            previewPictureBox.Image = Img1.internalSprite;
             
         }
-
+        
         private void finalImageLoader_FileOk(object sender, CancelEventArgs e)
         {
-
+            deSerialise(finalImageLoader.OpenFile());
         }
 
         private void finalImageSaver_FileOk(object sender, CancelEventArgs e)
         {
-
+            serialise(Path.GetFullPath(finalImageSaver.FileName));
         }
+
+      
     }
 }
 

@@ -41,6 +41,7 @@ namespace Texture_Atlas
             this.SaveButton = new System.Windows.Forms.Button();
             this.finalImageLoader = new System.Windows.Forms.OpenFileDialog();
             this.finalImageSaver = new System.Windows.Forms.SaveFileDialog();
+            this.loadButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +90,7 @@ namespace Texture_Atlas
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 5;
-            this.updateButton.Text = "Update";
+            this.updateButton.Text = "Merge";
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
@@ -115,17 +116,30 @@ namespace Texture_Atlas
             // finalImageLoader
             // 
             this.finalImageLoader.FileName = "TextureMaster";
+            this.finalImageLoader.Filter = "data files | *.dat";
             this.finalImageLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.finalImageLoader_FileOk);
             // 
             // finalImageSaver
             // 
+            this.finalImageSaver.FileName = "TextureAtlas";
             this.finalImageSaver.FileOk += new System.ComponentModel.CancelEventHandler(this.finalImageSaver_FileOk);
+            // 
+            // loadButton
+            // 
+            this.loadButton.Location = new System.Drawing.Point(114, 413);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(85, 28);
+            this.loadButton.TabIndex = 8;
+            this.loadButton.Text = "Load Image";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // AtlasGen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 675);
+            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.previewPictureBox);
             this.Controls.Add(this.updateButton);
@@ -161,6 +175,7 @@ namespace Texture_Atlas
         private Button SaveButton;
         private OpenFileDialog finalImageLoader;
         private SaveFileDialog finalImageSaver;
+        private Button loadButton;
     }
 }
 
